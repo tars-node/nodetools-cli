@@ -1,0 +1,37 @@
+{
+  "name": "@tars/nodetools-cli",
+  "version": "0.0.1",
+  "description": "tools cli for tars-nodejs",
+  "main": "./build/bin/nodetools.js",
+  "bin": {
+    "nodetools": "./build/bin/nodetools.js"
+  },
+  "scripts": {
+    "build": "npm run eslint && tsc",
+    "eslint": "./node_modules/.bin/eslint src --ext .ts"
+  },
+  "author": "czzou@tencent.com",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@types/command-exists": "^1.2.0",
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.7.12",
+    "@types/request": "^2.48.3",
+    "@types/request-promise": "^4.1.45",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-alloy": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "command-exists": "^1.2.9",
+    "commander": "^5.1.0",
+    "inquirer": "^7.1.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}

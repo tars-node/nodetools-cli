@@ -1,0 +1,40 @@
+{
+  "name": "${SERVER}",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon --exec ./node_modules/.bin/ts-node ./src/app.ts --watch ./src -e ts,tsx ",
+    "eslint": "./node_modules/.bin/eslint ./src --ext .ts",
+    "build": "npm run eslint && ./node_modules/.bin/tsc",
+    "upload": "npm run eslint && ./node_modules/.bin/tsc && ./node_modules/.bin/nodetools upload"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tars/nodetools": "^${NODETOOLS_VERSION}",
+    "@types/node": "^12.7.12",
+    "@types/koa": "^2.11.1",
+    "@types/koa__router": "^8.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-alloy": "^3.7.1",
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "koa": "^2.11.0",
+    "@koa/router": "^8.0.8"
+  },
+  "tars": {
+    "tarsurl": "",
+    "platform": "linux",
+    "app": "${APP}",
+    "service": "${SERVER}",
+    "set": ""
+  }
+}
