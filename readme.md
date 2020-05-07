@@ -10,7 +10,7 @@
 
 ### 初始化项目  
 `nodetools init`  
-根据需要设置选项，其中application、server，必须和创建服务的步骤中一致。
+根据需要设置选项，其中application、server、obj，必须和创建服务的步骤中一致。
 
 ### 实现业务逻辑  
 在初始化项目生成的目录下，http协议服务可以直接`npm run dev` 启动服务，开发业务逻辑；  
