@@ -17,4 +17,4 @@
 tars协议服务首先需要编写协议文件、转换为js/ts代码，按代码中提示配置好相应的`imp对象`，再`npm run dev`启动服务。
 
 ### 打包发布  
-在项目目录下，`nodetools upload` ，或者 `npm run upload`，根据提示输入tars平台地址、tars用户中心中创建的token，即可自动打包、发布服务。
+在项目目录下， `nodetools upload` ，或者 `npm run upload`，根据提示输入tars平台地址、tars用户中心中创建的token，即可自动打包、发布服务。

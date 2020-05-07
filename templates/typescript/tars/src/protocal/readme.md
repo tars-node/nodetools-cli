@@ -1,0 +1,1 @@
+在此处 [编写.tars协议文件](https://github.com/TarsCloud/TarsDocs/blob/master/base/tars-protocol.md)，并通过 [tars2node](https://github.com/tars-node/tars2node) 转换为js/ts代码
