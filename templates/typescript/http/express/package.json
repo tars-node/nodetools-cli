@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@tars/nodetools": "^${NODETOOLS_VERSION}",
+    "@tars/nodetools-cli": "^${NODETOOLS_VERSION}",
     "@types/node": "^12.7.12",
     "@types/express": "^4.17.6",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
