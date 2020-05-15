@@ -2,7 +2,7 @@
 此工具提供Tars Nodejs 脚手架、自动打包发布的功能。  
 通过此工具，可以通过简单的3~4个步骤来开发一个tars服务。  
 ## 1. 安装  
-`npm install -g @tars/nodetools`
+`npm install -g @tars/nodetools-cli`
 ## 2. 使用
 ### 创建服务  
 参考tars的[Hello World文档](https://github.com/TarsCloud/TarsDocs/tree/master/hello-world)创建一个tars服务。  
