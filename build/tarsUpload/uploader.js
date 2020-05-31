@@ -31,11 +31,12 @@ class Uploader {
     async _input() {
         let options = await uploadOptions_1.uploadOptions.getOptions();
         let answers = await inquirer_1.prompt(options);
-        if (answers.application || answers.server || answers.obj || answers.tarsurl) {
+        if (answers.application || answers.server || answers.obj || answers.tarsurl || answers.savetoken) {
             const pkgPath = path_1.default.resolve(process.cwd(), "package.json");
             try {
                 let pkgStr = await fs_1.promises.readFile(pkgPath, { encoding: "utf8" });
                 let pkgObj = JSON.parse(pkgStr);
+                let saveToken = "Save", dontSaveToken = "Don't Save";
                 if (!pkgObj.tars) {
                     pkgObj.tars = {};
                 }
@@ -47,6 +48,7 @@ class Uploader {
                     pkgObj.tars.service = answers.server;
                 if (answers.obj)
                     pkgObj.tars.obj = answers.obj;
+                pkgObj.tars.token = answers.savetoken == saveToken ? answers.token : dontSaveToken;
                 await fs_1.promises.writeFile(pkgPath, JSON.stringify(pkgObj, null, 2));
             }
             catch (e) {
@@ -106,6 +108,8 @@ class Uploader {
         }
     }
     async _removePkg() {
+        const tgzPath = path_1.default.resolve(process.cwd(), `${this._params.server}.tgz`);
+        await fs_1.promises.unlink(tgzPath);
     }
 }
 exports.default = Uploader;

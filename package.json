@@ -1,6 +1,6 @@
 {
   "name": "@tars/nodetools-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "tools cli for tars-nodejs",
   "main": "./build/bin/nodetools.js",
   "bin": {

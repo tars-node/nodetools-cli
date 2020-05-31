@@ -12,4 +12,5 @@ __export(require("./tarsApp"));
 //打包发布相关
 __export(require("./tarsurl"));
 __export(require("./token"));
+__export(require("./saveToken"));
 __export(require("./servant"));
