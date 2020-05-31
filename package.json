@@ -12,6 +12,14 @@
   },
   "author": "czzou@tencent.com",
   "license": "BSD-3-Clause",
+  "homepage": "https://github.com/tars-node/nodetools-cli",
+  "bugs": {
+    "url": "https://github.com/tars-node/nodetools-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tars-node/nodetools-cli.git"
+  },
   "devDependencies": {
     "@types/command-exists": "^1.2.0",
     "@types/inquirer": "^6.5.0",
