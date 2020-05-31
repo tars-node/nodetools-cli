@@ -27,6 +27,7 @@
   "dependencies": {},
   "tars": {
     "tarsurl": "",
+    "token":"",
     "platform": "linux",
     "app": "${APP}",
     "service": "${SERVER}",

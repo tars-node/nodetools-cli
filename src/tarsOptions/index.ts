@@ -9,5 +9,6 @@ export * from "./tarsApp"
 //打包发布相关
 export * from "./tarsurl"
 export * from "./token"
+export * from "./saveToken"
 export * from "./servant"
 

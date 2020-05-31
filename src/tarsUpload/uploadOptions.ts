@@ -3,26 +3,34 @@ import {Question} from "inquirer"
 import {promises as fs} from "fs"
 import path from "path"
 import chalk from "chalk"
-import {BaseOption, tarsurlOption, tokenOption, servantOption} from "../tarsOptions"
+import {BaseOption, tarsurlOption, tokenOption, saveTokenOption,SAVE_TOKEN, servantOption} from "../tarsOptions"
 
 class UplaodOptions{
     private _tarsurl = ""
+    private _token = ""
     private _application = ""
     private _server = ""
     private _option:BaseOption
 
     public constructor(){
-        this._option = tokenOption
+        this._option = new BaseOption()
     }
 
     public async getOptions():Promise<Array<Question>>{
         await this._checkPkg()
+       
         //若本地缓存没有tars平台地址，则从终端读入
         if(!this._tarsurl){
-            let options = new BaseOption()
-            options.addChild(tarsurlOption)
-            options.addChild(tokenOption)
-            this._option = options
+            this._option.addChild(tarsurlOption)
+        }
+        //若本地没有token，或者本地token标记为用户输入，加入token option
+        let dontSave:SAVE_TOKEN = "Don't Save"
+        if(!this._token || this._token == dontSave){
+            this._option.addChild(tokenOption)
+        }
+        //若本地没有token，加入saveToken option
+        if(!this._token){
+            this._option.addChild(saveTokenOption)
         }
         //若本地没有app/server信息，从终端读入
         if(!this._application || !this._server){
@@ -34,6 +42,7 @@ class UplaodOptions{
     public getLocalParmas(){
         return {
             tarsurl: this._tarsurl,
+            token: this._token,
             application: this._application,
             server: this._server
         }
@@ -45,6 +54,7 @@ class UplaodOptions{
             let pkgStr = await fs.readFile(pkgPath, {encoding:"utf8"})
             let pkgObj  = JSON.parse(pkgStr)
             this._tarsurl = pkgObj.tars?.tarsurl || ""
+            this._token = pkgObj.tars?.token || ""
             this._application = pkgObj.tars?.app || ""
             this._server = pkgObj.tars?.service || ""
         } catch(e){

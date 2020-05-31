@@ -6,7 +6,7 @@ import {prompt} from "inquirer"
 import commandExists from "command-exists"
 import requestPromise from "request-promise"
 import chalk from "chalk"
-import {OPTION_NAME} from "../tarsOptions"
+import {OPTION_NAME, SAVE_TOKEN, SAVE_TOKEN_NAME} from "../tarsOptions"
 import {uploadOptions} from "./uploadOptions"
 
 export default class Uploader{
@@ -32,11 +32,12 @@ export default class Uploader{
         let options = await uploadOptions.getOptions()
         let answers:Record<OPTION_NAME, any> = await prompt(options) as Record<OPTION_NAME, any>
        
-        if(answers.application || answers.server || answers.obj || answers.tarsurl){
+        if(answers.application || answers.server || answers.obj || answers.tarsurl || answers.savetoken){
             const  pkgPath = path.resolve(process.cwd(), "package.json")
             try{
                 let pkgStr = await fs.readFile(pkgPath, {encoding:"utf8"})
                 let pkgObj  = JSON.parse(pkgStr)
+                let saveToken:SAVE_TOKEN = "Save", dontSaveToken:SAVE_TOKEN = "Don't Save"
                 if(!pkgObj.tars){
                     pkgObj.tars = {}
                 }
@@ -44,6 +45,7 @@ export default class Uploader{
                 if(answers.application) pkgObj.tars.app = answers.application
                 if(answers.server) pkgObj.tars.service = answers.server
                 if(answers.obj) pkgObj.tars.obj = answers.obj
+                pkgObj.tars.token = answers.savetoken == saveToken ? answers.token : dontSaveToken
                 await fs.writeFile(pkgPath, JSON.stringify(pkgObj, null, 2))
             } catch(e){
                 console.warn(chalk.yellow("write app info into package.json failed"))
@@ -101,8 +103,8 @@ export default class Uploader{
     }
 
     private async _removePkg(){
-       
-        
+        const  tgzPath = path.resolve(process.cwd(), `${this._params.server}.tgz`)
+        await fs.unlink(tgzPath)
     }
 
 }
