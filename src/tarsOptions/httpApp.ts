@@ -15,15 +15,15 @@
  */
 import { ListQuestion, Answers } from "inquirer"
 import {OPTION_NAME, BaseOption} from "./baseOptions"
-import {PROTOCAL_NAME, PROTOCAL} from "./protocal"
+import {PROTOCOL_NAME, PROTOCOL} from "./protocol"
 
 //http服务选项，选择原生http模块还是koa还是express
 class HttpSvrOption extends BaseOption {
-    private _protocal:PROTOCAL = "http"
+    private _protocol:PROTOCOL = "http"
     public constructor(question: ListQuestion) {
         super(question)
         question.when = (answers:Answers)=>{
-            return answers[PROTOCAL_NAME] == this._protocal
+            return answers[PROTOCOL_NAME] == this._protocol
         }
     }
 }

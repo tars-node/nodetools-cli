@@ -14,11 +14,11 @@
  * specific language governing permissions and limitations under the License.
  */
 import {languageOption} from "../tarsOptions/language"
-import {BaseOption, servantOption, protocalOption, httpsvrOption, tarsSvrOption} from "../tarsOptions"
+import {BaseOption, servantOption, protocolOption, httpsvrOption, tarsSvrOption} from "../tarsOptions"
 
 const initOptions = new BaseOption()
 initOptions.addChild(languageOption)
-.addChild(protocalOption)
+.addChild(protocolOption)
 .addChild(servantOption)
 .addChild(httpsvrOption)
 .addChild(tarsSvrOption)

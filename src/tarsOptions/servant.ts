@@ -15,7 +15,7 @@
  */
 import { InputQuestion, Answers } from "inquirer"
 import { OPTION_NAME,  BaseOption} from "./baseOptions"
-import {PROTOCAL_NAME} from "./protocal"
+import {PROTOCOL_NAME} from "./protocol"
 
 
 class ServantOption extends BaseOption {
@@ -73,7 +73,7 @@ const objOption = new ServantOption(
       return `${input}Obj`
     },
     when: (answers: Answers) => {
-      return answers[PROTOCAL_NAME] == "tars"
+      return answers[PROTOCOL_NAME] == "tars"
     }
   }
 )

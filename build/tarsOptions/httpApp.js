@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const baseOptions_1 = require("./baseOptions");
-const protocal_1 = require("./protocal");
+const protocol_1 = require("./protocol");
 //http服务选项，选择原生http模块还是koa还是express
 class HttpSvrOption extends baseOptions_1.BaseOption {
     constructor(question) {
         super(question);
-        this._protocal = "http";
+        this._protocol = "http";
         question.when = (answers) => {
-            return answers[protocal_1.PROTOCAL_NAME] == this._protocal;
+            return answers[protocol_1.PROTOCOL_NAME] == this._protocol;
         };
     }
 }

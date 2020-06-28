@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const baseOptions_1 = require("./baseOptions");
-const protocal_1 = require("./protocal");
+const protocol_1 = require("./protocol");
 class ServantOption extends baseOptions_1.BaseOption {
     constructor(question) {
         super(question);
@@ -49,7 +49,7 @@ const objOption = new ServantOption({
         return `${input}Obj`;
     },
     when: (answers) => {
-        return answers[protocal_1.PROTOCAL_NAME] == "tars";
+        return answers[protocol_1.PROTOCOL_NAME] == "tars";
     }
 });
 appOption.addChild(serverOption).addChild(objOption);

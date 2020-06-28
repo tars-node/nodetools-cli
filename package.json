@@ -1,6 +1,6 @@
 {
   "name": "@tars/nodetools-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "tools cli for tars-nodejs",
   "main": "./build/bin/nodetools.js",
   "bin": {
@@ -29,8 +29,8 @@
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
     "cross-env": "^6.0.3",
-    "eslint": "^6.5.1",
-    "eslint-config-alloy": "^3.0.0",
+    "eslint": "^7.3.1",
+    "eslint-config-alloy": "^3.7.3",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4"
   },

@@ -15,14 +15,14 @@
  */
 import { InputQuestion, Answers } from "inquirer"
 import { OPTION_NAME, BaseOption} from "./baseOptions"
-import {PROTOCAL_NAME, PROTOCAL} from "./protocal"
+import {PROTOCOL_NAME, PROTOCOL} from "./protocol"
 
 class TarsSvrOption extends BaseOption {
-  private _protocal:PROTOCAL = "tars"
+  private _protocol:PROTOCOL = "tars"
     public constructor(question: InputQuestion) {
         super(question)
         question.when = (answers:Answers)=>{
-          return answers[PROTOCAL_NAME] == this._protocal
+          return answers[PROTOCOL_NAME] == this._protocol
       }
     }
 }
@@ -32,13 +32,13 @@ export const tarsSvrOption = new TarsSvrOption(
     {
       type: "input",
       name: TARSFILE_NAME,
-      message: "Please input tars protocal file name, (eg: Hello.tars): ",
+      message: "Please input tars protocol file name, (eg: Hello.tars): ",
       validate: function(value) {
         var pass = value.match( /^[a-zA-Z][a-zA-Z0-9]*\.tars$/i )
         if (pass) {
           return true
         }
-        return "Please enter a valid tars protocal file name"
+        return "Please enter a valid tars protocol file name"
       }
     }
 )

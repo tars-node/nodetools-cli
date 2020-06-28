@@ -17,7 +17,7 @@ export *from "./baseOptions"
 
 //初始化相关
 export * from "./language"
-export * from "./protocal"
+export * from "./protocol"
 export * from "./httpApp"
 export * from "./tarsApp"
 

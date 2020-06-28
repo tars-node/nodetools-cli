@@ -15,7 +15,7 @@
  */
 import {Question} from "inquirer"
 
-export type OPTION_NAME = "language" | "application" | "server" | "obj" | "protocal" | "httpapp" | "tarsfile" | "tarsurl" | "token" | "savetoken"
+export type OPTION_NAME = "language" | "application" | "server" | "obj" | "protocol" | "httpapp" | "tarsfile" | "tarsurl" | "token" | "savetoken"
 
 export class BaseOption{
     protected _question!:Question

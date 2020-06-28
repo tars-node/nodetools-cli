@@ -40,7 +40,7 @@ export default class Generator{
         this._params = answers as Record<OPTION_NAME, any>
         this._targetPath = path.resolve(process.cwd(),this._params.server)
         this._localTempPath = path.resolve(process.cwd(),`.nodetools_temp_${this._params.server}`)
-        this._templatePath = path.resolve(__dirname,"../../templates",this._params.language,this._params.protocal,this._params.httpapp || "").toLocaleLowerCase()
+        this._templatePath = path.resolve(__dirname,"../../templates",this._params.language,this._params.protocol,this._params.httpapp || "").toLocaleLowerCase()
     }
 
     private async _exist(dir:string):Promise<boolean>{
