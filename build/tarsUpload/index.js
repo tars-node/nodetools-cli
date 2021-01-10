@@ -19,6 +19,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * specific language governing permissions and limitations under the License.
  */
 const uploader_1 = __importDefault(require("./uploader"));
-exports.default = async () => {
-    await new uploader_1.default().run();
+exports.default = async (program) => {
+    await new uploader_1.default(program).run();
 };

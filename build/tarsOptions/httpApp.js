@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.httpsvrOption = exports.HTTP_APP_NAME = void 0;
 const baseOptions_1 = require("./baseOptions");
 const protocol_1 = require("./protocol");
 //http服务选项，选择原生http模块还是koa还是express

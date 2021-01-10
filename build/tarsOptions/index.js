@@ -1,7 +1,14 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Tencent is pleased to support the open source community by making Tars available.
@@ -18,14 +25,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-__export(require("./baseOptions"));
+__exportStar(require("./baseOptions"), exports);
 //初始化相关
-__export(require("./language"));
-__export(require("./protocol"));
-__export(require("./httpApp"));
-__export(require("./tarsApp"));
+__exportStar(require("./language"), exports);
+__exportStar(require("./protocol"), exports);
+__exportStar(require("./httpApp"), exports);
+__exportStar(require("./tarsApp"), exports);
 //打包发布相关
-__export(require("./tarsurl"));
-__export(require("./token"));
-__export(require("./saveToken"));
-__export(require("./servant"));
+__exportStar(require("./tarsurl"), exports);
+__exportStar(require("./token"), exports);
+__exportStar(require("./saveToken"), exports);
+__exportStar(require("./servant"), exports);

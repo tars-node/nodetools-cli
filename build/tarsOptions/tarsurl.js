@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.tarsurlOption = exports.TARSURL_NAME = void 0;
 const baseOptions_1 = require("./baseOptions");
 class TarsurlOption extends baseOptions_1.BaseOption {
     constructor(question) {

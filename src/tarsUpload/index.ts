@@ -14,6 +14,7 @@
  * specific language governing permissions and limitations under the License.
  */
 import Uploader from "./uploader"
-export default async ()=>{
-    await new Uploader().run()
+import {CommanderStatic} from "commander"
+export default async (program:CommanderStatic)=>{
+    await new Uploader(program).run()
 }

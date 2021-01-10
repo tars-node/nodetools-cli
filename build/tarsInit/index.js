@@ -19,6 +19,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * specific language governing permissions and limitations under the License.
  */
 const generator_1 = __importDefault(require("./generator"));
-exports.default = async () => {
-    await new generator_1.default().run();
+exports.default = async (program) => {
+    await new generator_1.default(program).run();
 };

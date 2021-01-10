@@ -25,5 +25,13 @@ const pkg = require("../../package.json"); // eslint-disable-line
 commander_1.default.
     description("init a tars project")
     .version(pkg.version)
+    .option("--cmd", "get options from command line")
+    .option("--language [language]", "project language, can be JavaScript/TypeScript", "JavaScript")
+    .option("--protocol [protocol]", "project protocol, can be http/tars", "http")
+    .option("--application [application]", "application name", "")
+    .option("--server [server]", "server name", "")
+    .option("--obj [obj]", "obj name", "")
+    .option("--httpapp [httpapp]", "http app, can be koa/express/native http", "koa")
+    .option("--tarsfile [tarsfile]", "tars protocol file name, eg:", "Hello.tars")
     .parse(process.argv);
-tarsInit_1.default();
+tarsInit_1.default(commander_1.default);

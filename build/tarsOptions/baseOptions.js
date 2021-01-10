@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseOption = exports.ALL_OPTIONS = void 0;
+exports.ALL_OPTIONS = ["language", "application", "server", "obj", "protocol", "httpapp", "tarsfile", "tarsurl", "token", "savetoken"];
 class BaseOption {
     constructor(question) {
         this._children = [];

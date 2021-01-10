@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.options = void 0;
 /**
  * Tencent is pleased to support the open source community by making Tars available.
  *

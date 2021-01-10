@@ -25,5 +25,11 @@ const pkg = require("../../package.json"); // eslint-disable-line
 commander_1.default.
     description("upload server to tars platform")
     .version(pkg.version)
+    .option("--cmd", "get options from command line")
+    .option("--tarsurl [tarsurl]", "tars url", "")
+    .option("--token [token]", "tars token", "")
+    .option("--application [application]", "application name", "")
+    .option("--server [server]", "server name", "")
+    .option("--obj [obj]", "obj name", "")
     .parse(process.argv);
-tarsUpload_1.default();
+tarsUpload_1.default(commander_1.default);

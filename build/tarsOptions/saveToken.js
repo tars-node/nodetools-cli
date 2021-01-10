@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.saveTokenOption = exports.SAVE_TOKEN_NAME = void 0;
 const baseOptions_1 = require("./baseOptions");
 class SaveTokenOption extends baseOptions_1.BaseOption {
     constructor(question) {

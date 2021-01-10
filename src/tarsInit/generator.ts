@@ -15,9 +15,10 @@
  */
 import path from "path"
 import {promises as fs} from "fs"
+import {CommanderStatic} from "commander"
 import {exec} from "child_process"
 import {prompt, Answers} from "inquirer"
-import {OPTION_NAME, APP_NAME, SERVER_NAME, OBJ_NAME, TARSFILE_NAME} from "../tarsOptions"
+import {ALL_OPTIONS, OPTION_NAME, APP_NAME, SERVER_NAME, OBJ_NAME, TARSFILE_NAME} from "../tarsOptions"
 import {options} from "./initOptions"
 import chalk from "chalk"
 const pkg = require("../../package.json") // eslint-disable-line
@@ -27,6 +28,11 @@ export default class Generator{
     private _targetPath = ""
     private _localTempPath = ""
     private _templatePath = ""
+    private _program:CommanderStatic
+
+    public constructor(program:CommanderStatic){
+        this._program = program
+    }
 
     public async run(){
         await this._input()
@@ -36,7 +42,17 @@ export default class Generator{
         await this._install()
     }
     private async _input(){
-        let answers:Answers = await prompt(options)
+        //如果传入了任何选项，则从命令行读取，否则从input读取
+        let answers:Answers
+        if(this._program.cmd){
+            answers = {}
+            ALL_OPTIONS.forEach((key)=>{
+                answers[key] = this._program[key]
+                return !this._program[key]
+            })
+        } else {
+            answers = await prompt(options)
+        }
         this._params = answers as Record<OPTION_NAME, any>
         this._targetPath = path.resolve(process.cwd(),this._params.server)
         this._localTempPath = path.resolve(process.cwd(),`.nodetools_temp_${this._params.server}`)

@@ -14,6 +14,8 @@
  * specific language governing permissions and limitations under the License.
  */
 import Generator from "./generator"
-export default async ()=>{
-    await new Generator().run()
+import {CommanderStatic} from "commander"
+
+export default async (program:CommanderStatic)=>{
+    await new Generator(program).run()
 }

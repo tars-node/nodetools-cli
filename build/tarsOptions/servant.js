@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.servantOption = exports.OBJ_NAME = exports.SERVER_NAME = exports.APP_NAME = void 0;
 const baseOptions_1 = require("./baseOptions");
 const protocol_1 = require("./protocol");
 class ServantOption extends baseOptions_1.BaseOption {

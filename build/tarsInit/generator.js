@@ -27,10 +27,11 @@ const initOptions_1 = require("./initOptions");
 const chalk_1 = __importDefault(require("chalk"));
 const pkg = require("../../package.json"); // eslint-disable-line
 class Generator {
-    constructor() {
+    constructor(program) {
         this._targetPath = "";
         this._localTempPath = "";
         this._templatePath = "";
+        this._program = program;
     }
     async run() {
         await this._input();
@@ -40,7 +41,18 @@ class Generator {
         await this._install();
     }
     async _input() {
-        let answers = await inquirer_1.prompt(initOptions_1.options);
+        //如果传入了任何选项，则从命令行读取，否则从input读取
+        let answers;
+        if (this._program.cmd) {
+            answers = {};
+            tarsOptions_1.ALL_OPTIONS.forEach((key) => {
+                answers[key] = this._program[key];
+                return !this._program[key];
+            });
+        }
+        else {
+            answers = await inquirer_1.prompt(initOptions_1.options);
+        }
         this._params = answers;
         this._targetPath = path_1.default.resolve(process.cwd(), this._params.server);
         this._localTempPath = path_1.default.resolve(process.cwd(), `.nodetools_temp_${this._params.server}`);

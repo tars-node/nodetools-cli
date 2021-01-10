@@ -25,8 +25,12 @@ const inquirer_1 = require("inquirer");
 const command_exists_1 = __importDefault(require("command-exists"));
 const request_promise_1 = __importDefault(require("request-promise"));
 const chalk_1 = __importDefault(require("chalk"));
+const tarsOptions_1 = require("../tarsOptions");
 const uploadOptions_1 = require("./uploadOptions");
 class Uploader {
+    constructor(program) {
+        this._program = program;
+    }
     async run() {
         await this._checkDeployCmd();
         await this._input();
@@ -44,8 +48,19 @@ class Uploader {
         }
     }
     async _input() {
-        let options = await uploadOptions_1.uploadOptions.getOptions();
-        let answers = await inquirer_1.prompt(options);
+        //如果传入了任何选项，则从命令行读取，否则从input读取
+        let answers;
+        if (this._program.cmd) {
+            answers = {};
+            tarsOptions_1.ALL_OPTIONS.forEach((key) => {
+                answers[key] = this._program[key];
+                return !this._program[key];
+            });
+        }
+        else {
+            let options = await uploadOptions_1.uploadOptions.getOptions();
+            answers = await inquirer_1.prompt(options);
+        }
         if (answers.application || answers.server || answers.obj || answers.tarsurl || answers.savetoken) {
             const pkgPath = path_1.default.resolve(process.cwd(), "package.json");
             try {

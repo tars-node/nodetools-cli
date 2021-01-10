@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.protocolOption = exports.PROTOCOL_NAME = void 0;
 const baseOptions_1 = require("./baseOptions");
 class ProtocolOption extends baseOptions_1.BaseOption {
     constructor(question) {

@@ -14,17 +14,24 @@
  * specific language governing permissions and limitations under the License.
  */
 import {createReadStream, promises as fs} from "fs"
+import {CommanderStatic} from "commander"
 import path from "path"
 import {exec} from "child_process"
-import {prompt} from "inquirer"
+import {prompt, Answers} from "inquirer"
 import commandExists from "command-exists"
 import requestPromise from "request-promise"
 import chalk from "chalk"
-import {OPTION_NAME, SAVE_TOKEN, SAVE_TOKEN_NAME} from "../tarsOptions"
+import {ALL_OPTIONS, OPTION_NAME, SAVE_TOKEN, SAVE_TOKEN_NAME} from "../tarsOptions"
 import {uploadOptions} from "./uploadOptions"
 
 export default class Uploader{
     private _params!:Record<OPTION_NAME, any>
+
+    private _program:CommanderStatic
+
+    public constructor(program:CommanderStatic){
+        this._program = program
+    }
 
     public async run(){
         await this._checkDeployCmd()
@@ -43,9 +50,18 @@ export default class Uploader{
         }
     }
     private async _input(){
-        let options = await uploadOptions.getOptions()
-        let answers:Record<OPTION_NAME, any> = await prompt(options) as Record<OPTION_NAME, any>
-       
+        //如果传入了任何选项，则从命令行读取，否则从input读取
+        let answers:Answers
+        if(this._program.cmd){
+            answers = {}
+            ALL_OPTIONS.forEach((key)=>{
+                answers[key] = this._program[key]
+                return !this._program[key]
+            })
+        } else {
+            let options = await uploadOptions.getOptions()
+            answers = await prompt(options)
+        }
         if(answers.application || answers.server || answers.obj || answers.tarsurl || answers.savetoken){
             const  pkgPath = path.resolve(process.cwd(), "package.json")
             try{
