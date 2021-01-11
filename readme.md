@@ -31,3 +31,32 @@ http协议服务，项目初始化完毕后可直接运行 `npm run upload` 将�
 tars协议服务，需要先转换tars协议文件，实现业务逻辑后运行  `npm run upload` 发布至Tars平台。  
 
 非本工具脚手架创建的项目，可在根目录下运行 `nodetools upload` 来自动打包发布，也可以自行编辑package.json中的script来使用此工具。  
+
+### 通过命令行使用
+可以通过传入 `--cmd`来从命令行读取参数  
+初始化 `nodetools init --cmd ...`，参数列表：  
+```
+-V, --version                output the version number
+  --cmd                        get options from command line
+  --language [language]        project language, can be JavaScript/TypeScript (default: "JavaScript")
+  --protocol [protocol]        project protocol, can be http/tars (default: "http")
+  --application [application]  application name (default: "")
+  --server [server]            server name (default: "")
+  --obj [obj]                  obj name (default: "")
+  --httpapp [httpapp]          http app, can be koa/express/native http (default: "koa")
+  --tarsfile [tarsfile]        tars protocol file name, eg: (default: "Hello.tars")
+  -h, --help                   display help for command
+```
+
+发布 `nodetools upload --cmd ...`，参数列表：  
+```
+-V, --version                output the version number
+  --cmd                        get options from command line
+  --tarsurl [tarsurl]          tars url (default: "")
+  --token [token]              tars token (default: "")
+  --application [application]  application name (default: "")
+  --server [server]            server name (default: "")
+  --obj [obj]                  obj name (default: "")
+  -h, --help                   display help for command
+```
+参数要求与通过终端输入时一致。

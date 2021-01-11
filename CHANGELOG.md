@@ -1,3 +1,7 @@
+# v0.0.8（2021-01-11）
+## FEATURES
+1. init、upload都支持从命令行读取参数
+
 # v0.0.6（2020-05-31）
 ## FEATURES
 1. `nodetools upload` 增加保存token选项
