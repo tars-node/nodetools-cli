@@ -128,7 +128,7 @@ class Uploader {
             if (data.indexOf("EM_I_FAILED") > -1) {
                 console.error(chalk_1.default.red("upload to tars fail, please check your tars app / token / project，and retry"));
             }
-            else if (data.indexOf("EM_I_SUCCESS") > -1) {
+            else {
                 console.log(chalk_1.default.green("upload success!"));
             }
         }
