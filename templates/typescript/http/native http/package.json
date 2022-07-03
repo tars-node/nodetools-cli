@@ -14,8 +14,8 @@
   "devDependencies": {
     "@tars/nodetools-cli": "^${NODETOOLS_VERSION}",
     "@types/node": "^12.7.12",
-    "@typescript-eslint/eslint-plugin": "^2.3.3",
-    "@typescript-eslint/parser": "^2.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.3",
+    "@typescript-eslint/parser": "^5.30.3",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4",
     "babel-eslint": "^10.1.0",
